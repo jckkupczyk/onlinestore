@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Store</title>
+    <link rel="stylesheet" th:href="@{/css/fonts.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+    <nav style="" id="page-nav">
+        <div class="container" id="nav-row">
+            <a th:href="@{/}" id="logo"> Online Store</a>
+            <a class="nav-item" href="">Oferta</a>
+            <a class="nav-item" href="">Kontakt</a>
+            <a class="nav-item" href="">Rozszerz ofertę</a>
+        </div>
+    </nav>
 
+    <section id="home-page-section">
+        <div class="container">
+            <div>
+                <img th:src="@{/img/bicycle.jpg}" alt="Rowery" style="width: 100%; height: 300px; obejct-fit: cover">
+            </div>
+            <div style="text-align: center">
+                <h2 style="font-size: 2em">Nasz sklep rowerowy</h2>
+                <p style="font-weight: 300; font-style: italic"> Online Store to sklep internetowy specjalizujący się w sprzedaży rowerów. Oferujemy markowe
+                    produkty dwóch najbardziej renomowanych polskich producentów. Serdecznie zapraszamy do zapoznania się z naszą ofertą!
+                    Możlwiość odbioru osobistego pod adresem: Kraków ...  Dane techniczne rowerów zrobić odnośniki do stron producentów!!!
+                </p>
+            </div>
+            <div style="display: flex; flex-direction: row; justify-content: center">
+                <a class="btn" href="">Koniecznie sprawdź naszą ofertę</a>
+            </div>
+
+            <div>
+                <img th:src="@{/img/romet.jpg}" alt="Romet" style="width: 50%; obejct-fit: cover; float: left">
+                <img th:src="@{/img/kross2.jpg}" alt="Kross" style="width: 50%; obejct-fit: cover; float: right">
+
+            </div>
+
+        </div>
+    </section>
 </body>
 </html>

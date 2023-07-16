@@ -6,10 +6,10 @@ import org.springframework.context.annotation.PropertySource;
 
 @PropertySource("classpath:db.properties")
 @SpringBootApplication
-public class OnlinestoreApplication {
+public class OnlineStoreApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OnlinestoreApplication.class, args);
+        SpringApplication.run(OnlineStoreApplication.class, args);
     }
 
 }
