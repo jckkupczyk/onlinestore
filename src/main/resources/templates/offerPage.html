@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: template (~{:: #offer-content})}">
+
+    <section id="offer-content">
+        <div class="container">
+            <h1>Oferta</h1>
+            <table style="width: 100%">
+                <tr th:each="bicycle : ${bicycles}">
+                    <td>
+                        <h3 th:text="${bicycle.name}"></h3>
+                        <p th:text="${bicycle.color}"></p>
+                    </td>
+
+                    <td style="text-align: right">
+                        <h3 th:text="|${bicycle.price}zł|"></h3>
+                        <a href="" class="btn btn-sm">Zamów</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+</html>
