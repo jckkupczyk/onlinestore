@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: template (~{:: #bicycle-content})}">
+<section id="bicycle-content">
+    <div class="container">
+        <h1>Rower</h1>
+        <form th:object="${bicycle}" method="post">
+            <div class="form-row">
+                <label>Marka roweru</label>
+                <select th:field="*{brand}" class="input"required>
+                    <option value="Romet">Romet</option>
+                    <option value="Kross">Kross</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Model:</label>
+                <input placeholder="Nazwa roweru" th:field="*{name}" type="text" class="input"/>
+            </div>
+
+            <div class="form-row">
+                <label>Cena:</label>
+                <input placeholder="Cena" th:field="*{price}" type="number" step="0.01" class="input"/>
+            </div>
+            <div class="form-row">
+                <label>Adres strony ze zdjęciem:</label>
+                <input placeholder="Podaj adres strony zdjęcia roweru" th:field="*{imgUrl}" type="text" class="input"/>
+            </div>
+            <div class="form-row">
+                <label>Dostępna ilość:</label>
+                <input placeholder="Ilość" th:field="*{quantity}" type="number" class="input" input required/>
+            </div>
+            <div>
+                <button class="btn">Dodaj/Zmień</button>
+            </div>
+        </form>
+    </div>
+</section>
+</html>

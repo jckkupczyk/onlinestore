@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: template (~{:: #admin-content})}">
+<section id="admin-content">
+    <div class="container">
+        <h1>Zmiana ofery</h1>
+        <h3>Rowery w ofercie sklepu:</h3>
+        <table>
+            <tr th:each="bicycle: ${bicycles}" class="actual-offer" >
+                <td>
+
+                    <h3 th:text="${bicycle.brand}"></h3>
+                    <p th:text="${bicycle.name}"></p>
+                    <img class="item img" th:src="@{${bicycle.imgUrl}}">
+                    <h3 th:text="|${bicycle.price}zł|"></h3>
+                    <h3 th:text="${bicycle.quantity}"></h3>
+                    <div class="bicycle-actions">
+                        <a th:href="@{/admin-panel/bicycle/edit/{bicycle-id}(bicycle-id=${bicycle.id})}" class="btn btn-sm">Edytuj</a>
+                        <form method="post" th:action="@{/admin-panel/bicycle/delete/{bicycle-id}(bicycle-id=${bicycle.id})}">
+                            <button class="btn btn-sm" style="background-color: var(--warning)">Usuń</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="bicycle-list-actions" >
+            <a th:href="@{/admin-panel/bicycle/create}" class="btn">Dodaj kolejny rower</a>
+        </div>
+    </div>
+</section>
+</html>

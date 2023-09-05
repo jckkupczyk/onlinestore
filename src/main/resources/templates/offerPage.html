@@ -15,6 +15,7 @@
         <table>
             <tr class="item" th:each="bicycle : ${bicycles}">
                 <td class="item-name">
+                    <h3 th:text="${bicycle.brand}"></h3>
                     <h3 th:text="${bicycle.name}"></h3>
                     <img class="item img" th:src="@{${bicycle.imgUrl}}">
                     <h3 class="item-quantity">

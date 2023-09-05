@@ -25,7 +25,7 @@ public class BicycleEntity {
     private String imgUrl;
 
     @Column(name = "quantity")
-    private int quantity;
+    private Long quantity;
 
     public Long getId() {
         return id;
@@ -67,11 +67,11 @@ public class BicycleEntity {
         this.imgUrl = imgUrl;
     }
 
-    public int getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 }

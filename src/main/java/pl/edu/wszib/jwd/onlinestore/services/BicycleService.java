@@ -2,6 +2,7 @@ package pl.edu.wszib.jwd.onlinestore.services;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.edu.wszib.jwd.onlinestore.data.entities.BicycleEntity;
 import pl.edu.wszib.jwd.onlinestore.data.repositories.BicycleRepository;
 import pl.edu.wszib.jwd.onlinestore.web.mappers.BicycleMapper;
@@ -27,8 +28,35 @@ public class BicycleService {
     }
 
     public BicycleModel getById(Long bicycleId) {
-        BicycleEntity bicycleEntity = bicycleRepository.findById(bicycleId).orElseThrow(EntityNotFoundException::new);
+        final var entity = bicycleRepository.findById(bicycleId)
+                .orElseThrow(EntityNotFoundException::new);
 
-        return BicycleMapper.toModel(bicycleEntity);
+        return BicycleMapper.toModel(entity);
     }
+    @Transactional
+    public void deleteById(Long bicycleId) {
+        bicycleRepository.deleteById(bicycleId);
+    }
+
+
+    @Transactional
+    public void createBicycle(BicycleModel bicycleModel) {
+        final var entity = BicycleMapper.toEntity(bicycleModel);
+
+        bicycleRepository.save(entity);
+    }
+
+    @Transactional
+    public void editBicycle(Long bicycleId, BicycleModel bicycleModel) {
+        final var entity = bicycleRepository.findById(bicycleId)
+                .orElseThrow(EntityNotFoundException::new);
+
+        entity.setName(bicycleModel.getName());
+        entity.setBrand(bicycleModel.getBrand());
+        entity.setPrice(bicycleModel.getPrice());
+        entity.setImgUrl(bicycleModel.getImgUrl());
+        entity.setQuantity(bicycleModel.getQuantity());
+
+    }
+
 }

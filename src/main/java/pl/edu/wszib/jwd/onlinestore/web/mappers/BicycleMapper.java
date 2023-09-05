@@ -16,4 +16,15 @@ public class BicycleMapper {
                 entity.getQuantity()
         );
     }
+    public static BicycleEntity toEntity(BicycleModel model) {
+        final var entity = new BicycleEntity();
+
+        entity.setName(model.getName());
+        entity.setBrand(model.getBrand());
+        entity.setPrice(model.getPrice());
+        entity.setImgUrl(model.getImgUrl());
+        entity.setQuantity(model.getQuantity());
+
+        return entity;
+    }
 }
