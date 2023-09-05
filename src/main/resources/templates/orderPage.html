@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: template (~{:: #order-content})}">
+<section id="order-content">
+    <div class="container">
+        <h1>Zamówienie</h1>
+        <div>
+            <h3 th:text="${bicycle.name}"></h3>
+            <img class="item pic" th:src="@{${bicycle.imgUrl}}">
+            <p th:text="|${bicycle.price}zł|"></p>
+            <p th:text="|${bicycle.quantity} szt.|"></p>
+            <span class="item-accessible" th:if="${bicycle.quantity > 0}">Dostępny</span>
+            <span class="item-inaccessible" th:if="${bicycle.quantity <= 0 }">Niedostępny</span>
+        </div>
+        <form th:action="@{/order/{bicycleId}(bicycleId=${bicycle.id})}" th:object="${orderAddress}" method="post">
+            <div class="form-row">
+                <div class="form-field">
+                    <input placeholder="Imię" th:field="*{firstName}" type="text" class="input"/>
+                    <span class="error-msg" th:if="${#fields.hasErrors('firstName')}">Imię powinno mieć długość od 2 do 30 znaków.</span>
+                </div>
+                <div class="form-field">
+                    <input placeholder="Nazwisko" th:field="*{lastName}" type="text" class="input"/>
+                    <span class="error-msg" th:if="${#fields.hasErrors('lastName')}">Nazwisko powinno mieć długość od 2 do 30 znaków.</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <input placeholder="Ulica" th:field="*{street}" type="text" class="input"/>
+                    <span class="error-msg" th:if="${#fields.hasErrors('street')}">Nazwa ulicy powinna mieć długość od 2 do 30 znaków.</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <input placeholder="Kod pocztowy" type="text" th:field="*{postalCode}" class="input"/>
+                    <span class="error-msg" th:if="${#fields.hasErrors('postalCode')}">Podaj kod pocztowy w formacie: 00-000.</span>
+                </div>
+                <div class="form-field">
+                    <input placeholder="Miasto" type="text" th:field="*{city}" class="input"/>
+                    <span class="error-msg" th:if="${#fields.hasErrors('city')}">Nazwa miasta powinna mieć długość od 2 do 30 znaków.</span>
+                </div>
+            </div>
+            <div class="form-row">
+                <button class="btn">Zamów</button>
+            </div>
+        </form>
+    </div>
+</section>
+</html>

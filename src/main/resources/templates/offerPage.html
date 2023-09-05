@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: template (~{:: #offer-content})}">
 
-    <section id="offer-content">
-        <div class="container">
-            <h1>Oferta</h1>
-            <table style="width: 100%">
-                <tr th:each="bicycle : ${bicycles}">
-                    <td>
-                        <h3 th:text="${bicycle.name}"></h3>
-                        <p th:text="${bicycle.color}"></p>
-                    </td>
+<section id="offer-content">
 
-                    <td style="text-align: right">
-                        <h3 th:text="|${bicycle.price}zł|"></h3>
-                        <a href="" class="btn btn-sm">Zamów</a>
-                    </td>
-                </tr>
-            </table>
+    <div class="container">
+        <h1 class="actual-offer">AKTUALNA OFERTA:</h1>
+
+        <div id="brands">
+            <div id="romet"><img th:src="@{/img/romet_logo.jpg}" alt="Romet"></div>
+            <div id="kross"><img th:src="@{/img/kross_logo.jpg}" alt="Kross"></div>
         </div>
-    </section>
+
+
+        <table>
+            <tr class="item" th:each="bicycle : ${bicycles}">
+                <td class="item-name">
+                    <h3 th:text="${bicycle.name}"></h3>
+                    <img class="item img" th:src="@{${bicycle.imgUrl}}">
+                    <h3 class="item-quantity">
+                        <span class="item-accessible" th:if="${bicycle.quantity > 0}">Dostępny</span>
+                        <span class="item-inaccessible" th:if="${bicycle.quantity <= 0 }">Niedostępny</span>
+                    </h3>
+                </td>
+
+                <td style="text-align: center">
+                    <h3 th:text="|${bicycle.price} zł|"></h3>
+                    <a th:href="@{/order/{bicycleId}(bicycleId=${bicycle.id})}" class="btn btn-sm" th:if="${bicycle.quantity > 0}">Zamów</a>
+
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+</section>
 
 </html>

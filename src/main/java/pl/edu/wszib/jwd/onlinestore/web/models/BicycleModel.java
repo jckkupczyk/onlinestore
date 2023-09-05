@@ -5,14 +5,20 @@ import java.math.BigDecimal;
 public class BicycleModel {
     private long id;
     private String name;
+    private String brand;
     private BigDecimal price;
-    private String color;
+    private String imgUrl;
+    private int quantity;
 
-    public BicycleModel(long id, String name, BigDecimal price, String color) {
+
+
+    public BicycleModel(long id, String name, String brand, BigDecimal price, String imgUrl, int quantity) {
         this.id = id;
         this.name = name;
+        this.brand = brand;
         this.price = price;
-        this.color = color;
+        this.imgUrl = imgUrl;
+        this.quantity = quantity;
 
     }
 
@@ -20,15 +26,22 @@ public class BicycleModel {
         return id;
     }
 
+
     public String getName() {
         return name;
     }
+
+    public String getBrand() {return brand;}
 
     public BigDecimal getPrice() {
         return price;
     }
 
-    public String getColor() {
-        return color;
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 }

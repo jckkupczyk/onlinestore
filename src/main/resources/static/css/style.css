@@ -4,6 +4,7 @@
     --warning: #F0506E;
     --white: #FFFFFF;
     --green: #7CFC00;
+    --grey: #CBC1C1;
 }
 
 html {
@@ -19,6 +20,12 @@ html, body {
 a {
     text-decoration: inherit;
     color: inherit;
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-left: 20px;
 }
 
 .container {
@@ -46,7 +53,7 @@ a {
 }
 
 #page-nav {
-    padding: 20px 0;
+    padding: 10px 0;
 
 }
 
@@ -64,7 +71,6 @@ a {
 }
 
 .nav-item {
-    text-transformation: uppercase;
     padding: 20px 0;
 }
 
@@ -77,6 +83,7 @@ a {
     border: none;
     cursor: pointer;
     font-size: 1em;
+
 
 }
 
@@ -98,9 +105,95 @@ a {
 #romet {
     width: 45%;
     float: left;
+    text-align: center;
+
 }
 
 #kross {
     width:55%;
-    float: left;
+    float: right;
+    text-align: center;
+
+
+}
+
+.input {
+    border: 1px solid var(--primary);
+    padding: 15px;
+    width: 100%;
+}
+
+#order-content form div {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}
+
+.item {
+    background-color: var(--grey);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    padding: 3px;
+}
+
+.item-name {
+    background-color: var(--grey);
+    color: black;
+    text-align: center;
+    padding: 3px;
+    font-size: large;
+    font-weight: bold;
+    width: calc(100% - 6px);
+    margin-top: 0;
+}
+.item-quantity {
+    background-color: white;
+    display: block;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 3px;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 3px;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.item img {
+
+    display: block;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.item-pic {
+    width: 70px;
+    height: auto;
+    border: 1px solid black;
+
+}
+
+.item-accessible
+{
+    color: var(--green);
+}
+
+.item-inaccessible
+{
+    color: var(--warning);
+}
+
+.actual-offer
+{
+    text-align: center;
+    background-color: var(--grey);
+    padding: 5px;
+    border: 1px solid black;
 }

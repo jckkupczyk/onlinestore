@@ -1,5 +1,6 @@
 package pl.edu.wszib.jwd.onlinestore.services;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.edu.wszib.jwd.onlinestore.data.entities.BicycleEntity;
 import pl.edu.wszib.jwd.onlinestore.data.repositories.BicycleRepository;
@@ -20,8 +21,14 @@ public class BicycleService {
     public List<BicycleModel> findAll() {
         List<BicycleEntity> entities = bicycleRepository.findAll();
 
-         return entities.stream()
-                 .map(BicycleMapper::toModel)
-                 .toList();
+        return entities.stream()
+                .map(BicycleMapper::toModel)
+                .toList();
+    }
+
+    public BicycleModel getById(Long bicycleId) {
+        BicycleEntity bicycleEntity = bicycleRepository.findById(bicycleId).orElseThrow(EntityNotFoundException::new);
+
+        return BicycleMapper.toModel(bicycleEntity);
     }
 }

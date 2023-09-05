@@ -10,8 +10,10 @@ public class BicycleMapper {
         return new BicycleModel(
                 entity.getId(),
                 entity.getName(),
+                entity.getBrand(),
                 entity.getPrice(),
-                entity.getColor()
+                entity.getImgUrl(),
+                entity.getQuantity()
         );
     }
 }

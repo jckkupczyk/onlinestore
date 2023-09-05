@@ -11,14 +11,21 @@ public class BicycleEntity {
     @Column(name = "id")
     private Long id;
 
+
+    @Column(name = "brand")
+    private String brand;
+
     @Column(name = "name")
     private String name;
 
     @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name = "color")
-    private String color;
+    @Column(name = "imgUrl")
+    private String imgUrl;
+
+    @Column(name = "quantity")
+    private int quantity;
 
     public Long getId() {
         return id;
@@ -36,6 +43,14 @@ public class BicycleEntity {
         this.name = name;
     }
 
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
     public BigDecimal getPrice() {
         return price;
     }
@@ -44,11 +59,19 @@ public class BicycleEntity {
         this.price = price;
     }
 
-    public String getColor() {
-        return color;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
