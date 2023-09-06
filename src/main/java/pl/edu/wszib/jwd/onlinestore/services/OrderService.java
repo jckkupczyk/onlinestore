@@ -32,6 +32,7 @@ public class OrderService {
         OrderAddressEntity orderAddressEntity = OrderAddressMapper.toEntity(orderAddressModel);
 
         OrderEntity orderEntity = new OrderEntity();
+        orderEntity.setBicycleBrand(bicycleEntity.getBrand());
         orderEntity.setBicycleName(bicycleEntity.getName());
         orderEntity.setOrderAddress(orderAddressEntity);
         orderEntity.setPrice(bicycleEntity.getPrice());

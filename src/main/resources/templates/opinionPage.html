@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: template(~{:: #opinion-content})}">
+
+<section id="opinion-content">
+  <div class="container">
+    <h1>Opinie</h1>
+    <table>
+      <tr th:each="opinion : ${opinions}">
+        <td>
+
+          <h5 style="text-align:right"; th:text="${#dates.format(opinion.createdAt, 'dd-MM-YYYY, HH:mm:ss')}"></h5>
+          <h3 th:text="${opinion.name}"></h3>
+          <h5 th:text="${opinion.opinion}"></h5>
+          <hr>
+
+        </td>
+      </tr>
+
+      <tr>
+        <td><h2>Dodaj nową opinię</h2>
+        </td>
+      </tr>
+    </table>
+    <form method="post" th:object="${newOpinion}">
+      <div><input th:field="*{name}" type="text" class="input" placeholder="Nazwa" required oninvalid="setCustomValidity('Proszę podać imię i nazwisko!')"/></input></div>
+
+      <div><textarea th:field="*{opinion}" class="input" placeholder="Twoja opinia..." required oninvalid="setCustomValidity('Proszę uzupełnić swoją opinię!')"></textarea></div>
+
+      <div>
+        <button class="btn btn-primary">DODAJ</button>
+      </div>
+    </form>
+
+  </div>
+</section>
+</html>
