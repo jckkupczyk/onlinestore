@@ -96,6 +96,13 @@ a {
     margin: 50px 0;
 }
 
+.actual-offer
+{
+    text-align: center;
+    background-color: var(--grey);
+    padding: 5px;
+    border: 1px solid black;
+}
 #brands {
     display: flex;
     flex-direction: row;
@@ -103,18 +110,18 @@ a {
 
 }
 #romet {
-    width: 45%;
+    width: 50%;
     float: left;
-    text-align: center;
-
 }
 
-#kross {
-    width:55%;
-    float: right;
+#romet-page {
+    width: 100%;
     text-align: center;
+}
 
-
+#kross-page {
+    width: 100%;
+    text-align: center;
 }
 
 .input {
@@ -127,6 +134,12 @@ a {
     display: flex;
     flex-direction: row;
     margin: 10px 0;
+}
+
+#order-content .error-msg {
+    font-size: 0.8em;
+    color: var(--warning);
+    padding: 3px 0;
 }
 
 .item {
@@ -190,10 +203,37 @@ a {
     color: var(--warning);
 }
 
-.actual-offer
-{
-    text-align: center;
-    background-color: var(--grey);
-    padding: 5px;
+#bicycle-content table {
+    width: 100%;
+}
+
+#bicycle-content .bicycle-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#bicycle-content .error-msg {
+    font-size: 0.8em;
+    color: var(--warning);
+    padding: 3px 0;
+}
+
+#admin-content .bicycle-list-actions {
+    margin: 30px 0;
+    text-align:left;
+
+}
+
+#bicycle-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#bicycle-content .form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
     border: 1px solid black;
 }

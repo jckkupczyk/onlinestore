@@ -1,7 +1,9 @@
 package pl.edu.wszib.jwd.onlinestore.web.controllers;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.wszib.jwd.onlinestore.services.BicycleService;
 import pl.edu.wszib.jwd.onlinestore.web.models.BicycleModel;
@@ -13,6 +15,7 @@ import pl.edu.wszib.jwd.onlinestore.web.models.BicycleModel;
 public class AdminController {
 
     private final BicycleService bicycleService;
+
     public AdminController(BicycleService bicycleService) {
         this.bicycleService = bicycleService;
     }
@@ -36,7 +39,6 @@ public class AdminController {
     }
 
 
-
     @GetMapping("bicycle/create")
     public String createBicycleForm(Model model) {
         model.addAttribute("bicycle", new BicycleModel());
@@ -46,10 +48,15 @@ public class AdminController {
 
 
     @PostMapping("bicycle/create")
-    public String createBicycle(@ModelAttribute("bicycle") BicycleModel bicycleModel) {
-        bicycleService.createBicycle(bicycleModel);
-
-        return "redirect:/admin-panel";
+    public String createBicycle(
+            @Valid @ModelAttribute("bicycle") BicycleModel bicycleModel,
+            BindingResult result) {
+        if (result.hasErrors()) {
+            return "bicyclePage";
+        } else {
+            bicycleService.createBicycle(bicycleModel);
+            return "redirect:/admin-panel";
+        }
     }
 
 
@@ -61,11 +68,22 @@ public class AdminController {
 
         return "bicyclePage";
     }
+
     @PostMapping("bicycle/edit/{bicycle-id}")
     public String editBicycle(@PathVariable("bicycle-id") Long bicycleId,
-                              @ModelAttribute("bicycle") BicycleModel bicycleModel) {
-        bicycleService.editBicycle(bicycleId, bicycleModel);
+                              @Valid @ModelAttribute("bicycle") BicycleModel bicycleModel,
+                              BindingResult result,
+                              Model model) {
+        if (result.hasErrors()) {
+            BicycleModel bicycle = bicycleService.getById(bicycleId);
+            model.addAttribute("bicycle", bicycle);
 
-        return "redirect:/admin-panel";
+            return "bicyclePage";
+        }
+        else
+        {
+            bicycleService.editBicycle(bicycleId, bicycleModel);
+            return "redirect:/admin-panel";
+        }
     }
 }

@@ -27,6 +27,24 @@ public class BicycleService {
                 .toList();
     }
 
+    public List<BicycleModel> findRomet() {
+        final var entities = bicycleRepository.findAll();
+
+        return entities.stream()
+                .filter(b -> b.getBrand().equals("Romet"))
+                .map(BicycleMapper::toModel)
+                .toList();
+    }
+
+    public List<BicycleModel> findKross() {
+        final var entities = bicycleRepository.findAll();
+
+        return entities.stream()
+                .filter(b -> b.getBrand().equals("Kross"))
+                .map(BicycleMapper::toModel)
+                .toList();
+    }
+
     public BicycleModel getById(Long bicycleId) {
         final var entity = bicycleRepository.findById(bicycleId)
                 .orElseThrow(EntityNotFoundException::new);

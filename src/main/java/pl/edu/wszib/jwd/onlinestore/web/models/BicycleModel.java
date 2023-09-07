@@ -1,5 +1,7 @@
 package pl.edu.wszib.jwd.onlinestore.web.models;
 
+import jakarta.validation.constraints.Min;
+
 import java.math.BigDecimal;
 
 public class BicycleModel {
@@ -8,6 +10,7 @@ public class BicycleModel {
     private String brand;
     private BigDecimal price;
     private String imgUrl;
+    @Min(1)
     private Long quantity;
 
     public BicycleModel() {

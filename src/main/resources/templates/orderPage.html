@@ -8,7 +8,7 @@
             <h3 th:text="${bicycle.name}"></h3>
             <img class="item pic" th:src="@{${bicycle.imgUrl}}">
             <p th:text="|${bicycle.price}zł|"></p>
-            <p th:text="|${bicycle.quantity} szt.|"></p>
+<!--            <p th:text="|${bicycle.quantity} szt.|"></p>-->
             <span class="item-accessible" th:if="${bicycle.quantity > 0}">Dostępny</span>
             <span class="item-inaccessible" th:if="${bicycle.quantity <= 0 }">Niedostępny</span>
         </div>

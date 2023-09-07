@@ -36,12 +36,14 @@ public class OrderService {
         orderEntity.setBicycleName(bicycleEntity.getName());
         orderEntity.setOrderAddress(orderAddressEntity);
         orderEntity.setPrice(bicycleEntity.getPrice());
+        bicycleEntity.setQuantity(bicycleEntity.getQuantity() - 1);
 
         final var savedOrder = orderRepository.save(orderEntity);
 
         return savedOrder.getId();
-
-
-
+    }
+    @Transactional
+    public void deleteOrderById(Long orderId) {
+        orderRepository.deleteById(orderId);
     }
 }

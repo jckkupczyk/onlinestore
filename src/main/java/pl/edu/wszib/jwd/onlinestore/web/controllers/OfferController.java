@@ -25,5 +25,23 @@ public class OfferController {
 
         return "offerPage";
     }
+
+    @GetMapping("romet")
+    public String rometPage(Model model) {
+        List<BicycleModel> bicycles = bicycleService.findRomet();
+
+        model.addAttribute("bicycles", bicycles);
+
+        return "rometPage";
+    }
+
+    @GetMapping("kross")
+    public String krossPage(Model model) {
+        List<BicycleModel> bicycles = bicycleService.findKross();
+
+        model.addAttribute("bicycles", bicycles);
+
+        return "krossPage";
+    }
 }
 

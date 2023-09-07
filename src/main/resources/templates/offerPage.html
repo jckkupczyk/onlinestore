@@ -4,14 +4,14 @@
 <section id="offer-content">
 
     <div class="container">
-        <h1 class="actual-offer">AKTUALNA OFERTA:</h1>
+        <h1 class="actual-offer">Wybierz markę roweru klikając w logo poniżej lub przeglądaj całą ofertę sklepu</h1>
 
         <div id="brands">
-            <div id="romet"><img th:src="@{/img/romet_logo.jpg}" alt="Romet"></div>
-            <div id="kross"><img th:src="@{/img/kross_logo.jpg}" alt="Kross"></div>
+            <div id="romet"><a href="romet"><img th:src="@{/img/romet_logo.jpg}" alt="Romet"></a></div>
+            <div id="kross"><a href="kross"><img th:src="@{/img/kross_logo.jpg}" alt="Kross"></a></div>
         </div>
 
-
+        <h1 class="actual-offer">AKTUALNA OFERTA:</h1>
         <table>
             <tr class="item" th:each="bicycle : ${bicycles}">
                 <td class="item-name">
@@ -27,13 +27,9 @@
                 <td style="text-align: center">
                     <h3 th:text="|${bicycle.price} zł|"></h3>
                     <a th:href="@{/order/{bicycleId}(bicycleId=${bicycle.id})}" class="btn btn-sm" th:if="${bicycle.quantity > 0}">Zamów</a>
-
                 </td>
             </tr>
-
-
         </table>
     </div>
 </section>
-
 </html>

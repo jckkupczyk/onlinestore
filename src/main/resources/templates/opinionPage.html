@@ -4,16 +4,14 @@
 
 <section id="opinion-content">
   <div class="container">
-    <h1>Opinie</h1>
+    <h1>Opinie:</h1>
     <table>
       <tr th:each="opinion : ${opinions}">
         <td>
-
-          <h5 style="text-align:right"; th:text="${#dates.format(opinion.createdAt, 'dd-MM-YYYY, HH:mm:ss')}"></h5>
-          <h3 th:text="${opinion.name}"></h3>
-          <h5 th:text="${opinion.opinion}"></h5>
-          <hr>
-
+          <h3 th:inline="text">[[${opinion.name}]]
+            <small style=font-size:small;float:right; th:text="${#dates.format(opinion.createdAt, 'dd-MM-YYYY, HH:mm:ss')}"></small></a></h3>
+            <h5 th:text="${opinion.opinion}"></h5>
+            <hr style="color: var(--green)";>
         </td>
       </tr>
 
