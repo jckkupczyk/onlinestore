@@ -10,6 +10,8 @@ public class OrderAddressMapper {
         entity.setFirstName(model.getFirstName());
         entity.setLastName(model.getLastName());
         entity.setStreet(model.getStreet());
+        entity.setHouseNumber(model.getHouseNumber());
+        entity.setApartmenteNumber(model.getApartmentNumber());
         entity.setPostalCode(model.getPostalCode());
         entity.setCity(model.getCity());
         return entity;

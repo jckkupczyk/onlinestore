@@ -237,3 +237,44 @@ a {
     gap: 10px;
     border: 1px solid black;
 }
+.confirmation {
+    background-image: url("../img/confirmation.gif");
+}
+
+.cancelling {
+    background-image: url("../img/cancelling.jpg");
+}
+
+.details {
+    background-color: var(--grey);
+}
+
+.check {
+    background-color: var(--grey);
+}
+
+.check {
+    background-color: var(--grey);
+}
+
+/*tabela z danymi adresowymi do wysyłki roweru*/
+.table-responsive {
+    overflow-x: auto;
+}
+table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+tr {
+    border-bottom: 1px solid black;
+}
+
+thead {
+    font-weight: bold;
+}
+
+th {
+    padding: 10px;
+}
+

@@ -48,15 +48,20 @@ public class OrderController {
             return "orderPage";
         }
 
-
-
         final var orderId = orderService.saveOrder(bicycleId, orderAddressModel);
 
         model.addAttribute("orderId", orderId);
+        model.addAttribute("bicycleId", bicycleId);
 
         return "orderConfirmationPage";
     }
 
+    @PostMapping("order/delete/{bicycle-id}/{order-id}")
+    public String deleteOrder(@PathVariable("bicycle-id") Long bicycleId, @PathVariable("order-id") Long orderId) {
+        orderService.deleteOrderById(bicycleId, orderId);
+
+        return "orderCancellingPage";
+    }
 }
 
 

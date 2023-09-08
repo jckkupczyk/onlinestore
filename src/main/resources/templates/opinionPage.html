@@ -9,9 +9,9 @@
       <tr th:each="opinion : ${opinions}">
         <td>
           <h3 th:inline="text">[[${opinion.name}]]
-            <small style=font-size:small;float:right; th:text="${#dates.format(opinion.createdAt, 'dd-MM-YYYY, HH:mm:ss')}"></small></a></h3>
+            <small style=font-size:small;float:right; th:text="${#dates.format(opinion.createdAt, 'dd-MM-YYYY, HH:mm:ss')}"></small></h3>
             <h5 th:text="${opinion.opinion}"></h5>
-            <hr style="color: var(--green)";>
+<!--            <hr style="color: var(&#45;&#45;green)">-->
         </td>
       </tr>
 
@@ -21,7 +21,7 @@
       </tr>
     </table>
     <form method="post" th:object="${newOpinion}">
-      <div><input th:field="*{name}" type="text" class="input" placeholder="Nazwa" required oninvalid="setCustomValidity('Proszę podać imię i nazwisko!')"/></input></div>
+      <div><input th:field="*{name}" type="text" class="input" placeholder="Nazwa" required oninvalid="setCustomValidity('Proszę podać imię i nazwisko!')"></input></div>
 
       <div><textarea th:field="*{opinion}" class="input" placeholder="Twoja opinia..." required oninvalid="setCustomValidity('Proszę uzupełnić swoją opinię!')"></textarea></div>
 

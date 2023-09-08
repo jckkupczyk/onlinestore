@@ -10,7 +10,7 @@ public class BicycleModel {
     private String brand;
     private BigDecimal price;
     private String imgUrl;
-    @Min(1)
+    @Min(0)
     private Long quantity;
 
     public BicycleModel() {

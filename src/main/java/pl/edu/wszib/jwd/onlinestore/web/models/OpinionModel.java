@@ -10,7 +10,6 @@ public class OpinionModel {
     private Long id;
     private String name;
     private String opinion;
-
     private Date createdAt;
 
     public Long getId() {

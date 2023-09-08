@@ -9,7 +9,6 @@
       <div id="romet-page"><img th:src="@{/img/romet_logo.jpg}" alt="Romet"></div>
     </div>
 
-
     <table>
       <tr class="item" th:each="bicycle : ${bicycles}">
         <td class="item-name">
@@ -28,9 +27,12 @@
 
         </td>
       </tr>
-
-
     </table>
+
+    <div style="display: flex; flex-direction: row; justify-content: center">
+      <a class="btn" href="offer">Wróć do przeglądanie całej ofery rowerów</a>
+    </div>
+
   </div>
 </section>
 </html>

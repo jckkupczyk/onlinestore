@@ -23,8 +23,7 @@ public class OrderService {
     }
 
     @Transactional
-    public Long saveOrder(Long bicycleId, OrderAddressModel orderAddressModel)
-    {
+    public Long saveOrder(Long bicycleId, OrderAddressModel orderAddressModel) {
 
         BicycleEntity bicycleEntity = bicycleRepository.findById(bicycleId)
                 .orElseThrow(
@@ -41,9 +40,18 @@ public class OrderService {
         final var savedOrder = orderRepository.save(orderEntity);
 
         return savedOrder.getId();
+
     }
+
     @Transactional
-    public void deleteOrderById(Long orderId) {
+    public void deleteOrderById(Long bicycleId, Long orderId) {
+        BicycleEntity bicycleEntity = bicycleRepository.findById(bicycleId)
+                .orElseThrow(
+                        EntityNotFoundException::new);
         orderRepository.deleteById(orderId);
+
+        bicycleEntity.setQuantity(bicycleEntity.getQuantity() + 1);
     }
+
 }
+

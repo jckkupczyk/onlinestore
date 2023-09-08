@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: template (~{:: #order-content})}">
+<section id="order-content">
+    <div class="container">
+        <h1>Właśnie zamówiłeś rower:</h1>
+
+        <table>
+            <tr class="item">
+                <td class="item-name">
+                    <h3 th:text="${bicycle.brand}"></h3>
+                    <h3 th:text="${bicycle.name}"></h3>
+                    <img class="item img" th:src="@{${bicycle.imgUrl}}">
+                </td>
+
+                <td style="text-align: center">
+                    <h3 th:text="|${bicycle.price} zł|"></h3>
+                </td>
+            </tr>
+        </table>
+
+
+        <div class="back">
+        <h1>Jeśli chcesz anulować swoje zamówienie wróć do poprzedniego widoku</h1>
+        <a href="#" onclick="history.back()" class="btn btn-sm">Wróć</a>
+        </div>
+
+    </div>
+</section>
+</html>

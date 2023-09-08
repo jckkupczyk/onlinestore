@@ -4,10 +4,61 @@
 
 <section id="order-confirmed-content">
     <div class="container">
-        <h1 style="font-size: 3em">Twoje zamówienie otrzymało nr id: <span th:text="${orderId}"></span> Już do Ciebie jedzie!!!</h1>
+        <div class="confirmation">
+            <h1  style="font-size: 3em">Zamówienie otrzymało nr id: <span th:text="${orderId}"></span>. Twój nowy rower już niebawem wyruszy w drogę do Ciebie!!!</h1>
+        </div>
+
+        <div class ="details">
+            <h1>Przejdź do szczegółowych informacji o rowerze, aby upewnić się czy wszystko się zgadza</h1>
+
+            <div class="form-row">
+                <a th:href="@{/details/{bicycleId}(bicycleId=${bicycleId})}" class="btn btn-sm">Pokaż szczegóły zakupu</a>
+
+            </div>
+        </div>
+
+        <div>
+            <h1>Sprawdź poprawność danych adresowych:</h1>
+        </div>
+
+        <div class="table-responsive">
+            <table style="width:100%">
+                <thead>
+                <tr>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Ulica</th>
+                    <th>Nr domu</th>
+                    <th>Nr mieszkania</th>
+                    <th>Kod pocztowy</th>
+                    <th>Miejscowość</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th th:text="${orderAddress.firstName}"></th>
+                    <th th:text="${orderAddress.lastName}">LastName</th>
+                    <th th:text="${orderAddress.street}">Street</th>
+                    <th th:text="${orderAddress.houseNumber}">Street</th>
+                    <th th:text="${orderAddress.apartmentNumber}">Street</th>
+                    <th th:text="${orderAddress.postalCode}">PostalCode</th>
+                    <th th:text="${orderAddress.city}">City</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class ="check">
+            <h1>W przypadku podania błędnych danych anuluj to zamówienie i wypełnij formularz ponownie</h1>
+
+
+            <form method="post"
+                  th:action="@{/order/delete/{bicycleId}/{orderId} (bicycleId=${bicycleId}, orderId=${orderId})}">
+                <button class="btn btn-sm" style="background-color: var(--warning)">Anuluj zamówienie</button>
+            </form>
+        </div>
 
     </div>
-
 </section>
 </html>
 

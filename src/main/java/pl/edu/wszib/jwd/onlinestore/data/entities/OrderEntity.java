@@ -1,8 +1,10 @@
 package pl.edu.wszib.jwd.onlinestore.data.entities;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "orders")
@@ -11,7 +13,6 @@ public class OrderEntity {
     @GeneratedValue
     @Column(name = "id")
     private Long id;
-
     @Column(name = "brand")
     private String bicycleBrand;
     @Column(name = "name")
@@ -22,6 +23,9 @@ public class OrderEntity {
     @JoinColumn(name = "order_address_id")
     private OrderAddressEntity orderAddress;
 
+    @CreationTimestamp
+    @Column(name = "ordered_at", nullable = false, updatable = false)
+    private Date orderedAt;
     public Long getId() {
         return id;
     }
@@ -60,5 +64,13 @@ public class OrderEntity {
 
     public void setOrderAddress(OrderAddressEntity orderAddress) {
         this.orderAddress = orderAddress;
+    }
+
+    public Date getOrderedAt() {
+        return orderedAt;
+    }
+
+    public void setOrderedAt(Date orderedAt) {
+        this.orderedAt = orderedAt;
     }
 }

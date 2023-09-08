@@ -15,10 +15,30 @@ public class OrderAddressEntity {
     private String lastName;
     @Column(name = "street")
     private String street;
+    @Column(name = "house_number")
+    private String houseNumber;
+    @Column(name = "apartment_number")
+    private String apartmenteNumber;
     @Column(name = "postal_code")
     private String postalCode;
     @Column(name = "city")
     private String city;
+
+    public String getApartmenteNumber() {
+        return apartmenteNumber;
+    }
+
+    public void setApartmenteNumber(String apartmenteNumber) {
+        this.apartmenteNumber = apartmenteNumber;
+    }
+
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
+    public void setHouseNumber(String houseNumber) {
+        this.houseNumber = houseNumber;
+    }
 
     public Long getId() {
         return id;

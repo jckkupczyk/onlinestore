@@ -5,13 +5,16 @@
     <div class="container">
         <h1>Zamówienie</h1>
         <div>
+            <h3 th:text="${bicycle.brand}"></h3>
             <h3 th:text="${bicycle.name}"></h3>
             <img class="item pic" th:src="@{${bicycle.imgUrl}}">
             <p th:text="|${bicycle.price}zł|"></p>
-<!--            <p th:text="|${bicycle.quantity} szt.|"></p>-->
             <span class="item-accessible" th:if="${bicycle.quantity > 0}">Dostępny</span>
             <span class="item-inaccessible" th:if="${bicycle.quantity <= 0 }">Niedostępny</span>
         </div>
+
+        <h1>Podaj dane adresowe:</h1>
+
         <form th:action="@{/order/{bicycleId}(bicycleId=${bicycle.id})}" th:object="${orderAddress}" method="post">
             <div class="form-row">
                 <div class="form-field">
@@ -28,6 +31,14 @@
                     <input placeholder="Ulica" th:field="*{street}" type="text" class="input"/>
                     <span class="error-msg" th:if="${#fields.hasErrors('street')}">Nazwa ulicy powinna mieć długość od 2 do 30 znaków.</span>
                 </div>
+                <div class="form-field">
+                    <input placeholder="Nr budynku" type="text" th:field="*{houseNumber}" class="input"/>
+                    <span class="error-msg" th:if="${#fields.hasErrors('houseNumber')}">Nr budynku powinien mieć od 1 do 5 znaków.</span>
+                </div>
+                <div class="form-field">
+                    <input placeholder="Nr mieszkania" type="text" th:field="*{apartmentNumber}" class="input"/>
+                    <span class="error-msg" th:if="${#fields.hasErrors('apartmentNumber')}">Nr mieszkania powinien mieć od 1 do 5 znaków.</span>
+                </div>
             </div>
             <div class="form-row">
                 <div class="form-field">
@@ -40,7 +51,8 @@
                 </div>
             </div>
             <div class="form-row">
-                <button class="btn">Zamów</button>
+                <!--                <a th:href="@{/confirmation/{bicycleId}(bicycleId=${bicycleId})}">-->
+                <button class="btn" th:if="${bicycle.quantity > 0 }">Zamów</button>
             </div>
         </form>
     </div>

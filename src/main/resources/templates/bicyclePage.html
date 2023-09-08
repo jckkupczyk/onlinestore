@@ -28,7 +28,8 @@
             <div class="form-row">
                 <label>Dostępna ilość:</label>
                 <input placeholder="Ilość" th:field="*{quantity}" type="number" class="input" input required/>
-                <span class="error-msg">Pamiętaj, że musisz podać wartość większą od 0.</span>
+                <!--                <span class="error-msg" th:if="${#fields.hasErrors('quantity')}">Nie możesz podać wartości ujemnej.</span>-->
+                <span class="error-msg">Pamiętaj, że nie możesz podać wartości mniejszej od 0.</span>
             </div>
             <div>
                 <button class="btn">Dodaj/Zmień</button>
