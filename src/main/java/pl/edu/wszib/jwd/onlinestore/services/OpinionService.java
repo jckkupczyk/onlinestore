@@ -43,6 +43,4 @@ public class OpinionService {
         OpinionEntity opinionEntity = opinionRepository.findById(opinionId).orElseThrow(EntityNotFoundException::new);
         return OpinionMapper.toModel(opinionEntity);
     }
-
-
 }

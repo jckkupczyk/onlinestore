@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: template(~{:: #opinion-content})}">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: template(~{:: #opinion-content})}">
 
 <section id="opinion-content">
-  <div class="container">
-    <h1>Opinie:</h1>
-    <table>
-      <tr th:each="opinion : ${opinions}">
-        <td>
-          <h3 th:inline="text">[[${opinion.name}]]
-            <small style=font-size:small;float:right; th:text="${#dates.format(opinion.createdAt, 'dd-MM-YYYY, HH:mm:ss')}"></small></h3>
-            <h5 th:text="${opinion.opinion}"></h5>
-<!--            <hr style="color: var(&#45;&#45;green)">-->
-        </td>
-      </tr>
+    <div class="container">
+        <h1>Opinie:</h1>
+        <table>
+            <tr th:each="opinion : ${opinions}">
+                <td>
+                    <h3 th:inline="text">[[${opinion.name}]]
+                        <small style=font-size:small;float:right;
+                               th:text="${#dates.format(opinion.createdAt, 'dd-MM-YYYY, HH:mm:ss')}"></small></h3>
+                    <h5 th:text="${opinion.opinion}"></h5>
+                </td>
+            </tr>
 
-      <tr>
-        <td><h2>Dodaj nową opinię</h2>
-        </td>
-      </tr>
-    </table>
-    <form method="post" th:object="${newOpinion}">
-      <div><input th:field="*{name}" type="text" class="input" placeholder="Nazwa" required oninvalid="setCustomValidity('Proszę podać imię i nazwisko!')"></input></div>
+            <tr>
+                <td><h2>Dodaj nową opinię</h2>
+                </td>
+            </tr>
+        </table>
+        <form method="post" th:object="${newOpinion}">
+            <div><input th:field="*{name}" type="text" class="input" placeholder="Nazwa" required
+                        oninvalid="setCustomValidity('Proszę podać imię i nazwisko!')"></input></div>
 
-      <div><textarea th:field="*{opinion}" class="input" placeholder="Twoja opinia..." required oninvalid="setCustomValidity('Proszę uzupełnić swoją opinię!')"></textarea></div>
+            <script>
+                function sprawdz(f, x) {
+                    if (f.value.length > x - 1) {
+                        alert("mozesz wpisac tylko " + x + " znakow");
+                        f.value = f.value.substring(0, x);
+                    }
+                }
+            </script>
+            <div>
+                <textarea name="pole1" rows="7" cols="20" th:field="*{opinion}" class="input"
+                          placeholder="Twoja opinia..." required
+                          oninvalid="setCustomValidity('Proszę uzupełnić swoją opinię!')"
+                          onkeyup="sprawdz(this, 250)"></textarea>
+            </div>
+            <div>
+                <button class="btn btn-primary">DODAJ</button>
+            </div>
+        </form>
 
-      <div>
-        <button class="btn btn-primary">DODAJ</button>
-      </div>
-    </form>
-
-  </div>
+    </div>
 </section>
-</html>

@@ -3,7 +3,6 @@ package pl.edu.wszib.jwd.onlinestore.data.entities;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.Instant;
 import java.util.Date;
 
 
@@ -63,3 +62,4 @@ public class OpinionEntity {
         this.createdAt = createdAt;
     }
 }
+

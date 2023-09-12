@@ -239,10 +239,22 @@ a {
 }
 .confirmation {
     background-image: url("../img/confirmation.gif");
+    background-size: contain;
+}
+
+.onlinestore {
+    background-image: url("../img/information.gif");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 
 .cancelling {
     background-image: url("../img/cancelling.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .details {

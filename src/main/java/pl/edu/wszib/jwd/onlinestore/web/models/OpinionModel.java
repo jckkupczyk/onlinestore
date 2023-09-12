@@ -1,8 +1,5 @@
 package pl.edu.wszib.jwd.onlinestore.web.models;
 
-import jakarta.persistence.Column;
-import org.hibernate.annotations.CreationTimestamp;
-
 import java.util.Date;
 
 public class OpinionModel {
