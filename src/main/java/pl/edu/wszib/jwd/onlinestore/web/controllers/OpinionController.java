@@ -1,4 +1,5 @@
 package pl.edu.wszib.jwd.onlinestore.web.controllers;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ public class OpinionController {
     }
 
     @GetMapping("/opinions")
-    public String showOpinions(Model model){
+    public String showOpinions(Model model) {
         model.addAttribute("opinions", opinionService.findAll());
         model.addAttribute("newOpinion", new OpinionModel());
         return "opinionPage";
@@ -28,7 +29,7 @@ public class OpinionController {
 
 
     @PostMapping("/opinions")
-    public  String addOpinion(@ModelAttribute("newOpinion") OpinionModel opinionModel, Model model){
+    public String addOpinion(@ModelAttribute("newOpinion") OpinionModel opinionModel, Model model) {
         opinionService.newOpinion(opinionModel);
         model.addAttribute("opinions", opinionService.findAll());
         model.addAttribute("newOpinion", new OpinionModel());

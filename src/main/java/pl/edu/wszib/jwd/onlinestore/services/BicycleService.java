@@ -22,35 +22,27 @@ public class BicycleService {
     public List<BicycleModel> findAll() {
         List<BicycleEntity> entities = bicycleRepository.findAll();
 
-        return entities.stream()
-                .map(BicycleMapper::toModel)
-                .toList();
+        return entities.stream().map(BicycleMapper::toModel).toList();
     }
 
     public List<BicycleModel> findRomet() {
         final var entities = bicycleRepository.findAll();
 
-        return entities.stream()
-                .filter(b -> b.getBrand().equals("Romet"))
-                .map(BicycleMapper::toModel)
-                .toList();
+        return entities.stream().filter(b -> b.getBrand().equals("Romet")).map(BicycleMapper::toModel).toList();
     }
 
     public List<BicycleModel> findKross() {
         final var entities = bicycleRepository.findAll();
 
-        return entities.stream()
-                .filter(b -> b.getBrand().equals("Kross"))
-                .map(BicycleMapper::toModel)
-                .toList();
+        return entities.stream().filter(b -> b.getBrand().equals("Kross")).map(BicycleMapper::toModel).toList();
     }
 
     public BicycleModel getById(Long bicycleId) {
-        final var entity = bicycleRepository.findById(bicycleId)
-                .orElseThrow(EntityNotFoundException::new);
+        final var entity = bicycleRepository.findById(bicycleId).orElseThrow(EntityNotFoundException::new);
 
         return BicycleMapper.toModel(entity);
     }
+
     @Transactional
     public void deleteById(Long bicycleId) {
         bicycleRepository.deleteById(bicycleId);
@@ -66,15 +58,19 @@ public class BicycleService {
 
     @Transactional
     public void editBicycle(Long bicycleId, BicycleModel bicycleModel) {
-        final var entity = bicycleRepository.findById(bicycleId)
-                .orElseThrow(EntityNotFoundException::new);
+        final var entity = bicycleRepository.findById(bicycleId).orElseThrow(EntityNotFoundException::new);
 
         entity.setName(bicycleModel.getName());
         entity.setBrand(bicycleModel.getBrand());
         entity.setPrice(bicycleModel.getPrice());
         entity.setImgUrl(bicycleModel.getImgUrl());
         entity.setQuantity(bicycleModel.getQuantity());
-
+        entity.setColor(bicycleModel.getColor());
+        entity.setWeight(bicycleModel.getWeight());
+        entity.setFrameSize(bicycleModel.getFrameSize());
+        entity.setWheelSize(bicycleModel.getWheelSize());
+        entity.setNumberOfGears(bicycleModel.getNumberOfGears());
+        entity.setSpecificationUrl(bicycleModel.getSpecificationUrl());
     }
 
 }

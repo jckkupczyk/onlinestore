@@ -1,5 +1,7 @@
 package pl.edu.wszib.jwd.onlinestore.data.entities;
+
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
 @Entity
@@ -26,6 +28,25 @@ public class BicycleEntity {
 
     @Column(name = "quantity")
     private Long quantity;
+
+    @Column(name = "color")
+    private String color;
+
+    @Column(name = "weight")
+    private float weight;
+
+    @Column(name = "frameSize")
+    private int frameSize;
+
+    @Column(name = "wheelSize")
+    private int wheelSize;
+
+    @Column(name = "numberOfGears")
+    private int numberOfGears;
+
+    @Column(name = "specificationUrl")
+    private String specificationUrl;
+
 
     public Long getId() {
         return id;
@@ -74,4 +95,53 @@ public class BicycleEntity {
     public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public int getFrameSize() {
+        return frameSize;
+    }
+
+    public void setFrameSize(int frameSize) {
+        this.frameSize = frameSize;
+    }
+
+    public int getWheelSize() {
+        return wheelSize;
+    }
+
+    public void setWheelSize(int wheelSize) {
+        this.wheelSize = wheelSize;
+    }
+
+    public int getNumberOfGears() {
+        return numberOfGears;
+    }
+
+    public void setNumberOfGears(int numberOfGears) {
+        this.numberOfGears = numberOfGears;
+    }
+
+    public String getSpecificationUrl() {
+        return specificationUrl;
+    }
+
+    public void setSpecificationUrl(String specificationUrl) {
+        this.specificationUrl = specificationUrl;
+    }
+
 }

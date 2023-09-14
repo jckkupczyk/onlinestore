@@ -23,12 +23,10 @@ public class OpinionService {
     }
 
 
-    public List<OpinionModel> findAll(){
-        List<OpinionEntity>  entities = opinionRepository.findAll();
+    public List<OpinionModel> findAll() {
+        List<OpinionEntity> entities = opinionRepository.findAll();
 
-        return entities.stream()
-                .map(OpinionMapper::toModel)
-                .toList();
+        return entities.stream().map(OpinionMapper::toModel).toList();
     }
 
     @Transactional

@@ -22,10 +22,10 @@ public class OrderEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_address_id")
     private OrderAddressEntity orderAddress;
-
     @CreationTimestamp
     @Column(name = "ordered_at", nullable = false, updatable = false)
     private Date orderedAt;
+
     public Long getId() {
         return id;
     }

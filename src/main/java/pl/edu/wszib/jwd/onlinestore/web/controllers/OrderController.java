@@ -19,9 +19,9 @@ public class OrderController {
     private final BicycleService bicycleService;
     private final OrderService orderService;
 
-    public OrderController(BicycleService bicycleService, OrderService orderService){
-    this.bicycleService = bicycleService;
-    this.orderService = orderService;
+    public OrderController(BicycleService bicycleService, OrderService orderService) {
+        this.bicycleService = bicycleService;
+        this.orderService = orderService;
     }
 
     @GetMapping("order/{bicycle-id}")
@@ -38,9 +38,7 @@ public class OrderController {
 
     public String order(@PathVariable("bicycle-id") Long bicycleId,
 
-                        @Valid @ModelAttribute("orderAddress") OrderAddressModel orderAddressModel,
-                        BindingResult result,
-                        Model model) {
+                        @Valid @ModelAttribute("orderAddress") OrderAddressModel orderAddressModel, BindingResult result, Model model) {
         if (result.hasErrors()) {
             BicycleModel bicycle = bicycleService.getById(bicycleId);
             model.addAttribute("bicycle", bicycle);

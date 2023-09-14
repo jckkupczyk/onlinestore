@@ -25,9 +25,7 @@ public class OrderService {
     @Transactional
     public Long saveOrder(Long bicycleId, OrderAddressModel orderAddressModel) {
 
-        BicycleEntity bicycleEntity = bicycleRepository.findById(bicycleId)
-                .orElseThrow(
-                        EntityNotFoundException::new);
+        BicycleEntity bicycleEntity = bicycleRepository.findById(bicycleId).orElseThrow(EntityNotFoundException::new);
         OrderAddressEntity orderAddressEntity = OrderAddressMapper.toEntity(orderAddressModel);
 
         OrderEntity orderEntity = new OrderEntity();
@@ -45,9 +43,7 @@ public class OrderService {
 
     @Transactional
     public void deleteOrderById(Long bicycleId, Long orderId) {
-        BicycleEntity bicycleEntity = bicycleRepository.findById(bicycleId)
-                .orElseThrow(
-                        EntityNotFoundException::new);
+        BicycleEntity bicycleEntity = bicycleRepository.findById(bicycleId).orElseThrow(EntityNotFoundException::new);
         orderRepository.deleteById(orderId);
 
         bicycleEntity.setQuantity(bicycleEntity.getQuantity() + 1);

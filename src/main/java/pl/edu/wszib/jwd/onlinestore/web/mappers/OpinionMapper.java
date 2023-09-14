@@ -1,4 +1,5 @@
 package pl.edu.wszib.jwd.onlinestore.web.mappers;
+
 import org.springframework.stereotype.Component;
 import pl.edu.wszib.jwd.onlinestore.data.entities.OpinionEntity;
 import pl.edu.wszib.jwd.onlinestore.web.models.OpinionModel;
@@ -13,6 +14,7 @@ public class OpinionMapper {
 
         return opinionEntity;
     }
+
     public static OpinionModel toModel(OpinionEntity opinionEntity) {
         OpinionModel opinionModel = new OpinionModel();
         opinionModel.setName(opinionEntity.getName());

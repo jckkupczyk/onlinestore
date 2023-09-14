@@ -9,7 +9,6 @@ import pl.edu.wszib.jwd.onlinestore.services.BicycleService;
 import pl.edu.wszib.jwd.onlinestore.web.models.BicycleModel;
 
 
-
 @Controller
 @RequestMapping("admin-panel")
 public class AdminController {
@@ -48,9 +47,7 @@ public class AdminController {
 
 
     @PostMapping("bicycle/create")
-    public String createBicycle(
-            @Valid @ModelAttribute("bicycle") BicycleModel bicycleModel,
-            BindingResult result) {
+    public String createBicycle(@Valid @ModelAttribute("bicycle") BicycleModel bicycleModel, BindingResult result) {
         if (result.hasErrors()) {
             return "bicyclePage";
         } else {
@@ -70,18 +67,13 @@ public class AdminController {
     }
 
     @PostMapping("bicycle/edit/{bicycle-id}")
-    public String editBicycle(@PathVariable("bicycle-id") Long bicycleId,
-                              @Valid @ModelAttribute("bicycle") BicycleModel bicycleModel,
-                              BindingResult result,
-                              Model model) {
+    public String editBicycle(@PathVariable("bicycle-id") Long bicycleId, @Valid @ModelAttribute("bicycle") BicycleModel bicycleModel, BindingResult result, Model model) {
         if (result.hasErrors()) {
             BicycleModel bicycle = bicycleService.getById(bicycleId);
             model.addAttribute("bicycle", bicycle);
 
             return "bicyclePage";
-        }
-        else
-        {
+        } else {
             bicycleService.editBicycle(bicycleId, bicycleModel);
             return "redirect:/admin-panel";
         }

@@ -25,7 +25,6 @@ public class OpinionEntity {
     private Date createdAt;
 
 
-
     public long getId() {
         return id;
     }
