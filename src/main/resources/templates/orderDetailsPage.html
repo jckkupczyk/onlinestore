@@ -5,24 +5,33 @@
     <div class="container">
         <h1>Właśnie zamówiłeś rower:</h1>
 
-        <table>
-            <tr class="item">
-                <td class="item-name">
-                    <h3 th:text="${bicycle.brand}"></h3>
-                    <h3 th:text="${bicycle.name}"></h3>
-                    <img class="item img" th:src="@{${bicycle.imgUrl}}">
-                </td>
-
-                <td style="text-align: center">
-                    <h3 th:text="|${bicycle.price} zł|"></h3>
+        <table class="actual-offer">
+            <tr>
+                <th colspan="2">
+                    <h2 style="display:inline-block" th:text="|${bicycle.brand} - |"></h2>
+                    <h2 style="display:inline-block" th:text="${bicycle.name}"></h2>
+                </th>
+            </tr>
+            <tr>
+                <th style="width:50%"></th>
+            </tr>
+            <tr>
+                <td><img class="item-img" th:src="@{${bicycle.imgUrl}}" alt="Miniatura roweru"></td>
+                <td>
+                    <h2 style="background-color:white;border-radius: 20px">Specyfikacja techniczna roweru:</h2>
+                    <h3 th:text="|Kolor: ${bicycle.color}|"></h3>
+                    <h3 th:text="|Waga: ${bicycle.weight} kg|"></h3>
+                    <h3 th:text="|Rozmiar ramy: ${bicycle.frameSize} cali|"></h3>
+                    <h3 th:text="|Rozmiar kół: ${bicycle.wheelSize} cali|"></h3>
+                    <h3 th:text="|Ilość biegów: ${bicycle.numberOfGears}|"></h3>
                 </td>
             </tr>
         </table>
 
 
         <div class="back">
-        <h1>Jeśli chcesz anulować swoje zamówienie wróć do poprzedniego widoku</h1>
-        <a href="#" onclick="history.back()" class="btn btn-sm">Wróć</a>
+            <h1>Jeśli chcesz anulować swoje zamówienie wróć do poprzedniego widoku</h1>
+            <a href="#" onclick="history.back()" class="btn btn-sm">Wróć</a>
         </div>
 
     </div>

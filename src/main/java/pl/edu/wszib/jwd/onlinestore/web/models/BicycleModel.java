@@ -18,7 +18,7 @@ public class BicycleModel {
     @Min(1)
     private int frameSize;
     @Min(1)
-    private int wheelSize;
+    private float wheelSize;
     @Min(1)
     private int numberOfGears;
     private String specificationUrl;
@@ -26,7 +26,7 @@ public class BicycleModel {
     public BicycleModel() {
     }
 
-    public BicycleModel(Long id, String name, String brand, BigDecimal price, String imgUrl, Long quantity, String color, float weight, int frameSize, int wheelSize, int numberOfGears, String specificationUrl) {
+    public BicycleModel(Long id, String name, String brand, BigDecimal price, String imgUrl, Long quantity, String color, float weight, int frameSize, float wheelSize, int numberOfGears, String specificationUrl) {
         this.id = id;
         this.name = name;
         this.brand = brand;
@@ -114,7 +114,7 @@ public class BicycleModel {
         this.frameSize = frameSize;
     }
 
-    public int getWheelSize() {
+    public float getWheelSize() {
         return wheelSize;
     }
 

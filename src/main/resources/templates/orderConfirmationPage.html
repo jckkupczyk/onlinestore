@@ -5,14 +5,16 @@
 <section id="order-confirmed-content">
     <div class="container">
         <div class="confirmation">
-            <h1  style="font-size: 3em">Zamówienie otrzymało nr id: <span th:text="${orderId}"></span>. Twój nowy rower już niebawem wyruszy w drogę do Ciebie!!!</h1>
+            <h1>Zamówienie otrzymało nr id: <span th:text="${orderId}"></span>. Twój nowy rower już niebawem wyruszy w
+                drogę do Ciebie!!!</h1>
         </div>
 
-        <div class ="details">
+        <div class="details">
             <h1>Przejdź do szczegółowych informacji o rowerze, aby upewnić się czy wszystko się zgadza</h1>
 
             <div class="form-row">
-                <a th:href="@{/details/{bicycleId}(bicycleId=${bicycleId})}" class="btn btn-sm">Pokaż szczegóły zakupu</a>
+                <a th:href="@{/details/{bicycleId}(bicycleId=${bicycleId})}" class="btn btn-sm">Pokaż szczegóły
+                    zakupu</a>
 
             </div>
         </div>
@@ -22,7 +24,8 @@
         </div>
 
         <div class="table-responsive">
-            <table style="width:100%">
+            <table rules="all" style="border:2px solid">
+                <!--            <table style="height:50vmin;width:auto">-->
                 <thead>
                 <tr>
                     <th>Imię</th>
@@ -48,13 +51,14 @@
             </table>
         </div>
 
-        <div class ="check">
+        <div class="check">
             <h1>W przypadku podania błędnych danych anuluj to zamówienie i wypełnij formularz ponownie</h1>
 
 
             <form method="post"
                   th:action="@{/order/delete/{bicycleId}/{orderId} (bicycleId=${bicycleId}, orderId=${orderId})}">
-                <button class="btn btn-sm" style="background-color: var(--warning)">Anuluj zamówienie</button>
+                <button class="btn btn-sm" style="background-color: var(--warning); width:100%">Anuluj zamówienie
+                </button>
             </form>
         </div>
 

@@ -39,7 +39,7 @@ public class BicycleEntity {
     private int frameSize;
 
     @Column(name = "wheelSize")
-    private int wheelSize;
+    private float wheelSize;
 
     @Column(name = "numberOfGears")
     private int numberOfGears;
@@ -120,11 +120,11 @@ public class BicycleEntity {
         this.frameSize = frameSize;
     }
 
-    public int getWheelSize() {
+    public float getWheelSize() {
         return wheelSize;
     }
 
-    public void setWheelSize(int wheelSize) {
+    public void setWheelSize(float wheelSize) {
         this.wheelSize = wheelSize;
     }
 

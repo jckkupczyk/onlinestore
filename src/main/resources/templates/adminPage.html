@@ -2,30 +2,70 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org"
       th:replace="~{fragments/layout :: template (~{:: #admin-content})}">
 <section id="admin-content">
-    <div class="container">
-        <h1>Zmiana ofery</h1>
-        <h3>Rowery w ofercie sklepu:</h3>
-        <table>
-            <tr th:each="bicycle: ${bicycles}" class="actual-offer" >
-                <td>
+    <div class="container" >
+        <h1 style="text-align: center">Zmiana oferty</h1>
+        <div class="bicycle-list-actions">
+            <a th:href="@{/admin-panel/bicycle/create}" class="btn btn-sm" style="background-color: var(--green)">Dodaj kolejny rower</a>
+        </div>
 
-                    <h3 th:text="${bicycle.brand}"></h3>
-                    <p th:text="${bicycle.name}"></p>
-                    <img class="item img" th:src="@{${bicycle.imgUrl}}">
-                    <h3 th:text="|${bicycle.price}zł|"></h3>
-                    <h3 th:text="${bicycle.quantity}"></h3>
-                    <div class="bicycle-actions">
-                        <a th:href="@{/admin-panel/bicycle/edit/{bicycle-id}(bicycle-id=${bicycle.id})}" class="btn btn-sm">Edytuj</a>
-                        <form method="post" th:action="@{/admin-panel/bicycle/delete/{bicycle-id}(bicycle-id=${bicycle.id})}">
-                            <button class="btn btn-sm" style="background-color: var(--warning)">Usuń</button>
-                        </form>
-                    </div>
+        <h2>Rowery w ofercie sklepu:</h2>
+
+        <table class="actual-offer" th:each="bicycle: ${bicycles}">
+            <tr>
+                <th colspan="2">
+                        <h2 style="display:inline-block" th:text="|${bicycle.brand} - |"></h2>
+                        <h2 style="display:inline-block" th:text="${bicycle.name}"></h2>
+                </th>
+            </tr>
+            <tr>
+                <th style="width:50%"></th>
+            </tr>
+            <tr>
+                <td><h2 th:text="|Ilość dostępnych sztuk: ${bicycle.quantity}|"></h2></td>
+                <td><h2 style="background-color:white;border-radius: 20px">Specyfikacja techniczna roweru:</h2></td>
+            </tr>
+            <tr>
+                <td><img class="item-img" th:src="@{${bicycle.imgUrl}}" alt="Miniatura roweru"></td>
+                <td>
+                    <h3 th:text="|Kolor: ${bicycle.color}|"></h3>
+                    <h3 th:text="|Waga: ${bicycle.weight} kg|"></h3>
+                    <h3 th:text="|Rozmiar ramy: ${bicycle.frameSize} cali|"></h3>
+                    <h3 th:text="|Rozmiar kół: ${bicycle.wheelSize} cali|"></h3>
+                    <h3 th:text="|Ilość biegów: ${bicycle.numberOfGears}|"></h3>
                 </td>
             </tr>
+            <tr>
+                <td><h2 th:text="|${bicycle.price} zł|"></h2></td>
+                <td><a th:href="@{${bicycle.specificationUrl}}" target="_blank"><button class="btn btn-cl">Naciśnij tutaj, aby sprawdzić osprzęt roweru na stronie producenta</button></a></td>
+            </tr>
+            <tr>
+            <th colspan="2">
+                <div class="bicycle-actions">
+                    <a th:href="@{/admin-panel/bicycle/edit/{bicycle-id}(bicycle-id=${bicycle.id})}" class="btn btn-sm">Edytuj</a>
+                </div>
+            </th>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <div class="bicycle-actions">
+                        <form method="post" th:action="@{/admin-panel/bicycle/delete/{bicycle-id}(bicycle-id=${bicycle.id})}">
+                            <button class="btn btn-sm" style="background-color: var(--warning);width:100%">Usuń</button>
+                        </form>
+                    </div>
+                </th>
+            </tr>
+
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+
+            <hr color="white">
         </table>
-        <div class="bicycle-list-actions" >
-            <a th:href="@{/admin-panel/bicycle/create}" class="btn">Dodaj kolejny rower</a>
+        <div class="bicycle-list-actions">
+            <a th:href="@{/admin-panel/bicycle/create}" class="btn btn-sm" style="background-color: var(--green)">Dodaj kolejny rower</a>
         </div>
     </div>
 </section>
 </html>
+

@@ -6,13 +6,15 @@
 <section id="opinion-content">
     <div class="container">
         <h1>Opinie:</h1>
+        <hr>
         <table>
             <tr th:each="opinion : ${opinions}">
                 <td>
-                    <h3 th:inline="text">[[${opinion.name}]]
-                        <small style=font-size:small;float:right;
-                               th:text="${#dates.format(opinion.createdAt, 'dd-MM-YYYY, HH:mm:ss')}"></small></h3>
-                    <h5 th:text="${opinion.opinion}"></h5>
+                    <h5 style="text-align: right"
+                        th:text="${#dates.format(opinion.createdAt, 'dd-MM-YYYY, HH:mm:ss')}"></h5>
+                    <h3 th:text="${opinion.name}"></h3>
+                    <h4 th:text="${opinion.opinion}"></h4>
+                    <hr>
                 </td>
             </tr>
 
@@ -21,9 +23,11 @@
                 </td>
             </tr>
         </table>
+
+
         <form method="post" th:object="${newOpinion}">
-            <div><input th:field="*{name}" type="text" class="input" placeholder="Nazwa" required
-                        oninvalid="setCustomValidity('Proszę podać imię i nazwisko!')"></input></div>
+            <div class="form-row"><input th:field="*{name}" type="text" class="input" placeholder="Nazwa" required
+                                         oninvalid="setCustomValidity('Proszę podać imię i nazwisko!')"></input></div>
 
             <script>
                 function sprawdz(f, x) {
@@ -33,16 +37,20 @@
                     }
                 }
             </script>
-            <div>
+            <div class="form-row">
                 <textarea name="pole1" rows="7" cols="20" th:field="*{opinion}" class="input"
                           placeholder="Twoja opinia..." required
                           oninvalid="setCustomValidity('Proszę uzupełnić swoją opinię!')"
                           onkeyup="sprawdz(this, 250)"></textarea>
             </div>
             <div>
-                <button class="btn btn-primary">DODAJ</button>
+                <center>
+                    <button class="btn btn-sm" style="width:100%">dodaj</button>
+                </center>
             </div>
         </form>
+    </div>
 
     </div>
 </section>
+</html>

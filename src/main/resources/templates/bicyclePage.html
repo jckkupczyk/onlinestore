@@ -7,32 +7,71 @@
         <form th:object="${bicycle}" method="post">
             <div class="form-row">
                 <label>Marka roweru</label>
-                <select th:field="*{brand}" class="input"required>
+                <select th:field="*{brand}" class="input" required>
                     <option value="Romet">Romet</option>
                     <option value="Kross">Kross</option>
                 </select>
             </div>
             <div class="form-row">
                 <label>Model:</label>
-                <input placeholder="Nazwa roweru" th:field="*{name}" type="text" class="input"/>
+                <input placeholder="Nazwa roweru" th:field="*{name}" type="text" class="input" input required/>
             </div>
 
             <div class="form-row">
                 <label>Cena:</label>
-                <input placeholder="Cena" th:field="*{price}" type="number" step="0.01" class="input"/>
+                <input placeholder="Cena" th:field="*{price}" type="number" step="0.01" class="input" input required/>
             </div>
+
             <div class="form-row">
                 <label>Adres strony ze zdjęciem:</label>
-                <input placeholder="Podaj adres strony zdjęcia roweru" th:field="*{imgUrl}" type="text" class="input"/>
+                <input placeholder="Podaj adres strony zdjęcia roweru" th:field="*{imgUrl}" type="text" class="input"
+                       input required/>
             </div>
+
             <div class="form-row">
                 <label>Dostępna ilość:</label>
                 <input placeholder="Ilość" th:field="*{quantity}" type="number" class="input" input required/>
-                <!--                <span class="error-msg" th:if="${#fields.hasErrors('quantity')}">Nie możesz podać wartości ujemnej.</span>-->
-                <span class="error-msg">Pamiętaj, że nie możesz podać wartości mniejszej od 0.</span>
+                <span class="error-msg">Pamiętaj, że musisz podać wartość nie mniejszą od od 0.</span>
             </div>
+
+            <div class="form-row">
+                <label>Kolor:</label>
+                <input placeholder="Kolor" th:field="*{color}" type="text" class="input" input required/>
+            </div>
+
+            <div class="form-row">
+                <label>Waga:</label>
+                <input placeholder="Waga" th:field="*{weight}" type="number" step="0.01" class="input" input required/>
+                <span class="error-msg" th:if="${#fields.hasErrors('weight')}">Pamiętaj, że musisz podać wartość większą od 0.</span>
+            </div>
+
+            <div class="form-row">
+                <label>Rozmiar ramy:</label>
+                <input placeholder="Rozmiar ramy" th:field="*{frameSize}" type="number" class="input" input required/>
+                <span class="error-msg" th:if="${#fields.hasErrors('frameSize')}">Pamiętaj, że musisz podać wartość większą od 0.</span>
+            </div>
+
+            <div class="form-row">
+                <label>Rozmiar kół:</label>
+                <input placeholder="Rozmiar kół" th:field="*{wheelSize}" type="number" step="0.5" class="input" input required/>
+                <span class="error-msg" th:if="${#fields.hasErrors('wheelSize')}">Pamiętaj, że musisz podać wartość większą od 0.</span>
+            </div>
+
+            <div class="form-row">
+                <label>Ilość biegów:</label>
+                <input placeholder="Ilość biegów" th:field="*{numberOfGears}" type="number" class="input" input
+                       required/>
+                <span class="error-msg" th:if="${#fields.hasErrors('numberOfGears')}">Pamiętaj, że musisz podać wartość większą od 0.</span>
+            </div>
+
+            <div class="form-row">
+                <label>Adres strony ze specyfikacją techniczną:</label>
+                <input placeholder="Podaj adres strony ze specyfikacją techniczną roweru" th:field="*{specificationUrl}"
+                       type="text" class="input" input required/>
+            </div>
+
             <div>
-                <button class="btn">Dodaj/Zmień</button>
+                <button class="btn" style="width:100%">Dodaj/Zmień</button>
             </div>
         </form>
     </div>

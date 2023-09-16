@@ -1,38 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: template (~{:: #offer-content})}">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: template (~{:: #offer-content})}">
 
 <section id="offer-content">
-  <div class="container">
-    <h1 class="actual-offer">ROWERY MARKI KROSS:</h1>
+    <div class="container">
+        <h1 class="actual-offer">ROWERY MARKI KROSS:</h1>
 
-    <div id="brands">
-      <div id="kross-page"><img th:src="@{/img/kross_logo.jpg}" alt="Kross"></div>
+        <div>
+            <center><img class="main-img" style="max-width:400px" th:src="@{/img/kross_logo.jpg}" alt="Logo Kross">
+            </center>
+        </div>
+
+        <table class="actual-offer" th:each="bicycle: ${bicycles}">
+            <tr>
+                <th colspan="2">
+                    <h2 style="display:inline-block" th:text="|${bicycle.brand} - |"></h2>
+                    <h2 style="display:inline-block" th:text="${bicycle.name}"></h2>
+                </th>
+            </tr>
+            <tr>
+                <th style="width:50%"></th>
+            </tr>
+            <tr>
+                <td>
+                    <h3 class="item-quantity">
+                        <span class="item-accessible" th:if="${bicycle.quantity > 0}">Dostępny</span>
+                        <span class="item-inaccessible" th:if="${bicycle.quantity <= 0 }">Niedostępny</span>
+                    </h3>
+                </td>
+                <td><h2 style="background-color:white;border-radius: 20px">Specyfikacja techniczna roweru:</h2></td>
+            </tr>
+            <tr>
+                <td><img class="item-img" th:src="@{${bicycle.imgUrl}}" alt="Miniatura roweru"></td>
+                <td>
+                    <h3 th:text="|Kolor: ${bicycle.color}|"></h3>
+                    <h3 th:text="|Waga: ${bicycle.weight} kg|"></h3>
+                    <h3 th:text="|Rozmiar ramy: ${bicycle.frameSize} cali|"></h3>
+                    <h3 th:text="|Rozmiar kół: ${bicycle.wheelSize} cali|"></h3>
+                    <h3 th:text="|Ilość biegów: ${bicycle.numberOfGears}|"></h3>
+                </td>
+            </tr>
+            <tr>
+                <td><h2 th:text="|${bicycle.price} zł|"></h2></td>
+                <td><a th:href="@{${bicycle.specificationUrl}}" target="_blank">
+                    <button class="btn btn-cl">Naciśnij tutaj, aby sprawdzić osprzęt roweru na stronie producenta
+                    </button>
+                </a></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <a th:href="@{/order/{bicycleId}(bicycleId=${bicycle.id})}" class="btn btn-sm"
+                       th:if="${bicycle.quantity > 0}">Zamów</a>
+                </th>
+            </tr>
+
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+
+            <hr color="white">
+        </table>
+
+        <div style="display: flex; flex-direction: row; justify-content: center">
+            <a class="btn" href="offer" style="background-color:yellow;color:black">Wróć do przeglądanie całej ofery
+                rowerów</a>
+        </div>
+
     </div>
-
-    <table>
-      <tr class="item" th:each="bicycle : ${bicycles}">
-        <td class="item-name">
-          <h3 th:text="${bicycle.brand}"></h3>
-          <h3 th:text="${bicycle.name}"></h3>
-          <img class="item img" th:src="@{${bicycle.imgUrl}}">
-          <h3 class="item-quantity">
-            <span class="item-accessible" th:if="${bicycle.quantity > 0}">Dostępny</span>
-            <span class="item-inaccessible" th:if="${bicycle.quantity <= 0 }">Niedostępny</span>
-          </h3>
-        </td>
-
-        <td style="text-align: center">
-          <h3 th:text="|${bicycle.price} zł|"></h3>
-          <a th:href="@{/order/{bicycleId}(bicycleId=${bicycle.id})}" class="btn btn-sm" th:if="${bicycle.quantity > 0}">Zamów</a>
-
-        </td>
-      </tr>
-    </table>
-
-    <div style="display: flex; flex-direction: row; justify-content: center">
-      <a class="btn" href="offer">Wróć do przeglądanie całej ofery rowerów</a>
-    </div>
-
-  </div>
 </section>
 </html>

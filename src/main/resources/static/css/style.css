@@ -3,8 +3,9 @@
     --secondary: #1E87F0;
     --warning: #F0506E;
     --white: #FFFFFF;
-    --green: #7CFC00;
+    --green: #32CD32;
     --grey: #CBC1C1;
+    --theight: 150vmax;
 }
 
 html {
@@ -22,6 +23,59 @@ a {
     color: inherit;
 }
 
+h1 {
+    font-size: 5.0vmin;
+    text-align: center;
+}
+
+h2 {
+    font-size: 4.0vmin;
+    text-align: center;
+}
+
+h3 {
+    font-size: 3.5vmin;
+    background-color: white;
+}
+
+h4 {
+    font-size: 3.0vmin;
+    text-align: center;
+}
+
+h5 {
+    font-size: 2.0vmin;
+    text-align: center;
+}
+
+p {
+    font-weight: 300;
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 3.0vmin;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+}
+
+tr {
+    border-bottom: none;
+    text-align: center;
+}
+
+thead {
+    font-weight: bold;
+}
+
+th {
+    padding: 10px;
+    font-size: 2.0vmin;
+    text-align: center;
+}
+
 .title {
     font-size: 1.4rem;
     font-weight: bold;
@@ -30,9 +84,8 @@ a {
 
 .container {
     margin: 0 auto;
-}
 
-/* -------------------------------------------------*/
+}
 
 @media only screen and (max-width: 992px) {
     .container {
@@ -54,80 +107,44 @@ a {
 
 #page-nav {
     padding: 10px 0;
+    height: auto;
 
 }
 
 #nav-row {
+    font-size: 3vmin;
     display: flex;
     flex-direction: row;
     justify-content: space-between
 }
 
 #logo {
-    font-size: 40px;
+    font-size: 7vmin;
     font-family: 'Exo', sans-serif;
     font-weight: bolder;
     color: #32CD32;
 }
 
-.nav-item {
-    padding: 20px 0;
-}
-
-.btn {
-    background-color: var(--secondary);
-    padding: 15px;
-    text-transform: uppercase;
-    color: var(--white);
-    font-weight: 300;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-
-
-}
-
-.btn-sm {
-    padding: 5px 15px;
-    font-size: 0.75em;
-}
 
 #home-page-section .container div {
     margin: 50px 0;
 }
 
-.actual-offer
-{
-    text-align: center;
-    background-color: var(--grey);
-    padding: 5px;
-    border: 1px solid black;
-}
 #brands {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
 }
+
 #romet {
     width: 50%;
     float: left;
 }
 
-#romet-page {
-    width: 100%;
-    text-align: center;
-}
-
-#kross-page {
-    width: 100%;
-    text-align: center;
-}
-
-.input {
-    border: 1px solid var(--primary);
-    padding: 15px;
-    width: 100%;
+#kross {
+    width: 50%;
+    float: right;
 }
 
 #order-content form div {
@@ -140,67 +157,6 @@ a {
     font-size: 0.8em;
     color: var(--warning);
     padding: 3px 0;
-}
-
-.item {
-    background-color: var(--grey);
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 10px;
-    border: 1px solid black;
-    padding: 3px;
-}
-
-.item-name {
-    background-color: var(--grey);
-    color: black;
-    text-align: center;
-    padding: 3px;
-    font-size: large;
-    font-weight: bold;
-    width: calc(100% - 6px);
-    margin-top: 0;
-}
-.item-quantity {
-    background-color: white;
-    display: block;
-    max-width: 80%;
-    height: auto;
-    margin: 0 auto;
-    padding: 3px;
-    font-size: large;
-    font-weight: bold;
-    margin-top: 3px;
-    border: 1px solid black;
-    align-items: center;
-}
-
-.item img {
-
-    display: block;
-    max-width: 80%;
-    height: auto;
-    margin: 0 auto;
-}
-
-.item-pic {
-    width: 70px;
-    height: auto;
-    border: 1px solid black;
-
-}
-
-.item-accessible
-{
-    color: var(--green);
-}
-
-.item-inaccessible
-{
-    color: var(--warning);
 }
 
 #bicycle-content table {
@@ -221,7 +177,7 @@ a {
 
 #admin-content .bicycle-list-actions {
     margin: 30px 0;
-    text-align:left;
+    text-align: center;
 
 }
 
@@ -237,6 +193,119 @@ a {
     gap: 10px;
     border: 1px solid black;
 }
+
+#opinion-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#opinion-content .form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border: 1px solid black;
+}
+
+.main-img {
+    max-height: 300px;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+}
+
+.actual-offer {
+    text-align: center;
+    background-color: var(--grey);
+    padding: 5px;
+    border: 1px solid black;
+    height: auto;
+}
+
+.nav-item {
+    padding: 20px 0;
+}
+
+.btn {
+    background-color: var(--secondary);
+    padding: 15px;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 300;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+.btn-sm {
+    padding: 5px 15px;
+    font-size: 4vmin;
+}
+
+.btn-cl {
+    padding: 5px 15px;
+    color: black;
+    font-weight: bold;
+    background-color: var(--white);
+    font-size: 3.0vmin;
+}
+
+
+.input {
+    border: 1px solid var(--primary);
+    padding: 15px;
+    width: 100%;
+}
+
+.item-quantity {
+    background-color: white;
+    display: block;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 3px;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 3px;
+    border: none;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.item-img {
+    border: 3px solid var(--secondary);
+    display: block;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+.item-accessible {
+    color: var(--green);
+    border: none;
+    display: block;
+    width: 90%;
+    height: 4.5vmin;
+    font-size: 3.5vmin;
+    margin: 0 auto;
+}
+
+.item-inaccessible {
+    color: var(--warning);
+    border: none;
+    display: block;
+    width: 90%;
+    height: 4.5vmin;
+    font-size: 3.5vmin;
+    margin: 0 auto;
+}
+
 .confirmation {
     background-image: url("../img/confirmation.gif");
     background-size: contain;
@@ -252,7 +321,7 @@ a {
 
 .cancelling {
     background-image: url("../img/cancelling.jpg");
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -269,24 +338,15 @@ a {
     background-color: var(--grey);
 }
 
-/*tabela z danymi adresowymi do wysyłki roweru*/
 .table-responsive {
     overflow-x: auto;
 }
-table {
-    border-collapse: collapse;
-    text-align: left;
-    width: 100%;
-}
-tr {
-    border-bottom: 1px solid black;
-}
 
-thead {
-    font-weight: bold;
-}
 
-th {
-    padding: 10px;
-}
+
+
+
+
+
+
 

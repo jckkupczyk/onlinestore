@@ -2,13 +2,14 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org"
       th:replace="~{fragments/layout :: template (~{:: #order-confirmed-content})}">
 
-    <section id="order-confirmed-content">
+<section id="order-confirmed-content">
 
-        <div class="container">
-            <div class="cancelling">
-            <h1 style="font-size: 3em; height:300px; text-align: center">Twoje zmówienie zostało anulowane!</h1>
-            <a th:href="@{/offer}" class="btn btn-sm">Wróć do przeglądania naszej oferty</a>
-            </div>
+    <div class="container">
+        <div class="cancelling">
+            <h1 style="font-size: 10vmin">Twoje zamówienie zostało anulowane!</h1>
+            <a th:href="@{/offer}" class="btn btn-sm" style="background-color:yellow;color:black">Wróć do przeglądania
+                naszej oferty</a>
         </div>
-    </section>
+    </div>
+</section>
 </html>
