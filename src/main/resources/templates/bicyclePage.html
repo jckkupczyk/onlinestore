@@ -7,7 +7,7 @@
         <form th:object="${bicycle}" method="post">
             <div class="form-row">
                 <label>Marka roweru</label>
-                <select th:field="*{brand}" class="input" required>
+                <select th:field="*{brand}" class="input"required>
                     <option value="Romet">Romet</option>
                     <option value="Kross">Kross</option>
                 </select>
@@ -24,14 +24,13 @@
 
             <div class="form-row">
                 <label>Adres strony ze zdjęciem:</label>
-                <input placeholder="Podaj adres strony zdjęcia roweru" th:field="*{imgUrl}" type="text" class="input"
-                       input required/>
+                <input placeholder="Podaj adres strony zdjęcia roweru" th:field="*{imgUrl}" type="text" class="input" input required/>
             </div>
 
             <div class="form-row">
                 <label>Dostępna ilość:</label>
                 <input placeholder="Ilość" th:field="*{quantity}" type="number" class="input" input required/>
-                <span class="error-msg">Pamiętaj, że musisz podać wartość nie mniejszą od od 0.</span>
+                <span class="error-msg">Pamiętaj, że musisz podać wartość większą od 0.</span>
             </div>
 
             <div class="form-row">
@@ -59,15 +58,13 @@
 
             <div class="form-row">
                 <label>Ilość biegów:</label>
-                <input placeholder="Ilość biegów" th:field="*{numberOfGears}" type="number" class="input" input
-                       required/>
+                <input placeholder="Ilość biegów" th:field="*{numberOfGears}" type="number" class="input" input required/>
                 <span class="error-msg" th:if="${#fields.hasErrors('numberOfGears')}">Pamiętaj, że musisz podać wartość większą od 0.</span>
             </div>
 
             <div class="form-row">
                 <label>Adres strony ze specyfikacją techniczną:</label>
-                <input placeholder="Podaj adres strony ze specyfikacją techniczną roweru" th:field="*{specificationUrl}"
-                       type="text" class="input" input required/>
+                <input placeholder="Podaj adres strony ze specyfikacją techniczną roweru" th:field="*{specificationUrl}" type="text" class="input" input required/>
             </div>
 
             <div>

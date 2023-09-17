@@ -118,7 +118,7 @@ public class BicycleModel {
         return wheelSize;
     }
 
-    public void setWheelSize(int wheelSize) {
+    public void setWheelSize(float wheelSize) {
         this.wheelSize = wheelSize;
     }
 

@@ -33,6 +33,7 @@ public class OrderService {
         orderEntity.setBicycleName(bicycleEntity.getName());
         orderEntity.setOrderAddress(orderAddressEntity);
         orderEntity.setPrice(bicycleEntity.getPrice());
+        orderEntity.setBicycleId(bicycleEntity.getId());
         bicycleEntity.setQuantity(bicycleEntity.getQuantity() - 1);
 
         final var savedOrder = orderRepository.save(orderEntity);

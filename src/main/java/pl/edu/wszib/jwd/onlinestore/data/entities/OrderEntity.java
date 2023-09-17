@@ -19,6 +19,9 @@ public class OrderEntity {
     private String bicycleName;
     @Column(name = "price")
     private BigDecimal price;
+
+    @Column(name = "bicycle_id")
+    private Long bicycleId;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_address_id")
     private OrderAddressEntity orderAddress;
@@ -72,5 +75,13 @@ public class OrderEntity {
 
     public void setOrderedAt(Date orderedAt) {
         this.orderedAt = orderedAt;
+    }
+
+    public Long getBicycleId() {
+        return bicycleId;
+    }
+
+    public void setBicycleId(Long bicycleId) {
+        this.bicycleId = bicycleId;
     }
 }
