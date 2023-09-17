@@ -40,8 +40,6 @@ Panel administratora służy do zarządzania bazą produktów przez sprzedawcę.
 
 ### Baza danych:
 * W czasie przygotowywania projektu korzystałem z uczelnianej bazy danych Microsoft SQL Server, z którą łączyłem się zgodnie z wytycznymi przedstawionymi na naszych zajęciach, czyli logując się do prywatnej sieci wirtualnej (VPN). Do wszystkich operacji bazodanowych miałem dostęp przez Microsoft SQL Server Management Studio.
-
 * W trakcie realizacji projektu testowo kilkukrotnie przełączałem się również na bazę H2 dostępną po wpisaniu do przeglądarki adresu: http://localhost:8080/h2-console (w tym momencie aby połączyć się z tą bazą danych należy w projekcie odkomentować wiersze oraz zakomentować podkreślone na czerwono w pliku application.properties oraz zależności w pom.xml). Następnie po przekierowania do strony uwierzytelnienia wpisujemy tylko hasło zadeklarowane w application.properties. Pola JDBC URL oraz User Name zostaje uzupełnione automatycznie ag. z tym co w application.properties.
-
 * Po ukończeniu projektu w celu jego hostingowania na railway.app kolejny raz zmieniłem bazę danych tym razem na postgresql. Na podstawie ostatnich zajęć z przedmiotu projekt końcowy aplikacja została udotępniona pod adresem: https://onlinestoreapp.up.railway.app. 
 

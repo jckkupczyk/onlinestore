@@ -16,6 +16,7 @@
 --     (1012,20,'Romet Mustang M2', 'Romet',2500.00,'https://romet.pl/picture/fit-in/988x988/filters:fill(white)/3bc46f88aa7bd42b861cb1b030abb550.jpg','czerwony',14.5,19,29,27,'https://romet.pl/rower-gorski-romet-mustang-m2-2023-9'),
 --     (1013,10,'Kross Level 5.0',' Kross',3800.00,'https://kross.eu/media/cache/gallery/rc/mi5wp4ru/images/38/38481/KRLV5Z29X17M002361-KR-Level-5.0-niebieski-srebrny-po%C5%82ysk-g.jpg','niebiesko-srebrny',13.78,19,29,27,'https://kross.eu/pl/rowery/gorskie/mtb-xc/level-5-0-fsa-czarny-srebrny-polysk');
 --
+
 -- -- opinions table
 -- INSERT INTO opinions (id, created_at, name, opinion)
 -- VALUES
