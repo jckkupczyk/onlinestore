@@ -18,7 +18,6 @@
 --
 -- -- opinions table
 -- INSERT INTO opinions (id, created_at, name, opinion)
---
 -- VALUES
 --     (1001, '2023-09-17 13:58:43.182000', 'Jan Nowak', 'Jestem bardzo zadowolony z zakupionego roweru, jak i z bardzo bardzo szybko zrealizowanego zamówienia.'),
 --     (1002, '2023-09-17 14:00:14.879000', 'Ilona Gołda', 'Super sklep!!! Bardzo miła obsługa klienta, zdecydowanie polecam.'),
