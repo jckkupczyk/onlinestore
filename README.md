@@ -11,6 +11,7 @@
 * ewentualnie dodatkowe funkcjonalności w miarę rozwijania projektu
 
 W uzupełnieniu do wstępnych założeń projektu dotyczącego  stworzenia strony internetowej symulującej działanie prostego sklepu internetowego poniżej przedstawiam instrukcję obsługi:
+
 Aby uruchomić onlinestore należy pobrać repozytorium ze strony: https://github.com/jckkupczyk/onlinestore. Po zbudowaniu oraz uruchomieniu aplikacji w Inteliji lub innym IDE należy wpisać w przeglądarce domyślny adres url: http://localhost:8080. W celu wczytania przykładowych danych można skorzystać z pliku data.sql, w którym znajdują się zakomentowane polecenia uzupełniające tabele: „bicycles” oraz „opinions”. 
 
 Główna strona sklepu internetowego to widok paska nawigacji, grafiki obrazującej tematykę sprzedawanych produktów – są to rowery oraz podstawowych informacji o sklepie. 
